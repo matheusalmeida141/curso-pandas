@@ -1,0 +1,32 @@
+# %%
+
+idades = [
+    32, 38, 30, 30, 31,
+    35, 25, 29, 31, 37,
+    27, 23, 36, 33, 32,
+]
+# %%
+media = sum(idades)/len(idades)
+
+diffs = 0
+for i in idades:
+    diffs += (i - media)**2
+
+var = diffs/(len(idades) - 1)
+
+var
+
+
+# %%
+import pandas as pd
+
+series_idades = pd.Series(idades)
+series_idades
+
+# %%
+media = series_idades.mean()
+var = series_idades.var()
+print(f'Média:{media} \nVarianca:{var}')
+summary = series_idades.describe()
+print(summary)
+# %%
