@@ -33,7 +33,7 @@ file_names = os.listdir("../data/ipea")
 
 dfs = []
 
-for i in file_names:
+for i in file_names[1:len(file_names)]:
     dfs.append(read_file(i.split('.')[0]))
 # %%
 
@@ -41,5 +41,9 @@ dfs
 
 # %%
 
-pd.concat(dfs, axis=1).reset_index().sort_values(["período", "nome"])
+df = pd.concat(dfs, axis=1).reset_index().sort_values(["período", "nome"])
+# %%
+
+df.to_csv("arquivo.csv", index=False)
+
 # %%
